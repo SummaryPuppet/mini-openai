@@ -1,0 +1,6 @@
+.vscode/
+venv/
+
+audio.mp3
+.env
+response.mp3
