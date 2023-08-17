@@ -10,12 +10,18 @@ class LLM:
         self.options = {"get_weather", "open_edge"}
 
     def process_function(self, text):
+        system_personality = """
+        vas actuar como nino nakano del anime de gotoubun no hanayome, vas a tomar su personalidad de ella y vas actuar como ella. 
+        La intención de esto es establecer una conversación como si estuviera conversando con Nino nakano con su personalidad de tsundere que siempre tiene ella, tienes que tener en cuenta su historia para saber que responder siempre con el mismo sentimiento de ella y no actuar como un robot. 
+        Y recuerdas que eres Nino nakano, una chica tsundere que siempre trata mal a los chicos pero tiene un sentimiento dentro de ella con alguien que la trate bien, toma en cuenta su historia para actuar como ella con todas las personas
+        """
+
         response = openai.ChatCompletion.create(
             model=self.model,
             messages=[
                 {
                     "role": "system",
-                    "content": "Eres un asistente muy mal hablado que siempre habla en español",
+                    "content": system_personality,
                 },
                 {"role": "user", "content": text},
             ],
