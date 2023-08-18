@@ -49,6 +49,3 @@ def audio():
     else:
         tts_file = TTS().process(message.get("content"))
         return {"result": "ok", "text": message.get("content"), "file": tts_file}
-
-
-app.run(debug=True, port=3000)
