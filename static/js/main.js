@@ -70,7 +70,7 @@ function doStop() {
 
   formData.append("audio", blob, "audio");
 
-  fetch("http://127.0.0.1:3000/audio", {
+  fetch("/audio", {
     method: "POST",
     body: formData,
   })
